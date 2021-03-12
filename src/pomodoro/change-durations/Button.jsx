@@ -7,7 +7,7 @@ import React from "react";
  * @returns {JSX} - JSX element representing each of the 4 +/- buttons
  */
 export default function Button({ values, setValues, type }) {
-  const { focusVal, focusInc, breakVal, breakInc, stopClicked, running } = values;
+  const { focusVal, breakVal, stopClicked, running } = values;
 
   /* clamp() clamps n between its min and max (focusVal and breakVal are clamped) */
   const clamp = (n, min, max) => (n > max ? max : n < min ? min : n);
@@ -27,22 +27,22 @@ export default function Button({ values, setValues, type }) {
 
     let newVal = 0;
     if (newTarget.id === "increase-focus") {
-      newVal = clamp(focusVal + focusInc, 5, 60);
+      newVal = clamp(focusVal + 5, 5, 60);
       setValues(() => {
         return { ...values, focusVal: newVal, focusCount: newVal * 60 };
       });
     } else if (newTarget.id === "increase-break") {
-      newVal = clamp(breakVal + breakInc, 1, 15);
+      newVal = clamp(breakVal + 1, 1, 15);
       setValues(() => {
         return { ...values, breakVal: newVal, breakCount: newVal * 60 };
       });
     } else if (newTarget.id === "decrease-break") {
-      newVal = clamp(breakVal - breakInc, 1, 15);
+      newVal = clamp(breakVal - 1, 1, 15);
       setValues(() => {
         return { ...values, breakVal: newVal, breakCount: newVal * 60 };
       });
     } else if (newTarget.id === "decrease-focus") {
-      newVal = clamp(focusVal - focusInc, 5, 60);
+      newVal = clamp(focusVal - 5, 5, 60);
       setValues(() => {
         return { ...values, focusVal: newVal, focusCount: newVal * 60 };
       });

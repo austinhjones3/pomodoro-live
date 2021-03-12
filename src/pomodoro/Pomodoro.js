@@ -13,14 +13,8 @@ import Timer from "./timer/Timer";
 export default function Pomodoro() {
   const [values, setValues] = useState({
     focusVal: 25,
-    focusInc: 5,
-    focusMin: 5,
-    focusMax: 60,
     focusCount: 1500,
     breakVal: 5,
-    breakInc: 1,
-    breakMin: 1,
-    breakMax: 15,
     breakCount: 300,
     focus: true,
     running: false,
