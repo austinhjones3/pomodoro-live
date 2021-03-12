@@ -6,7 +6,7 @@ import React from "react";
  * @param {Object} props - destructured values, setValues, increase, focus
  * @returns {JSX} - JSX element representing each of the 4 +/- buttons
  */
-export default function Button({ values, setValues, increase, focus }) {
+export default function Button({ values, setValues, type }) {
   const { focusVal, focusInc, breakVal, breakInc, stopClicked, running } = values;
 
   /* clamp() clamps n between its min and max (focusVal and breakVal are clamped) */
@@ -49,25 +49,16 @@ export default function Button({ values, setValues, increase, focus }) {
     }
   };
 
-  const idMaker = () => {
-    return increase
-      ? focus
-        ? "increase-focus"
-        : "increase-break"
-      : !focus
-      ? "decrease-break"
-      : "decrease-focus";
-  };
   return (
     <button
       type="button"
       className="btn btn-secondary"
-      data-testid={idMaker()}
-      id={idMaker()}
+      data-testid={type}
+      id={type}
       disabled={stopClicked && !running ? false : true}
       onClick={btnClickHandler}
     >
-      <span className={increase ? "oi oi-plus" : "oi oi-minus"} />
+      <span className={type.includes("increase") ? "oi oi-plus" : "oi oi-minus"} />
     </button>
   );
 }

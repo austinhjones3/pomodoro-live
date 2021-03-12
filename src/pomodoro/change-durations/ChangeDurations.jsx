@@ -19,14 +19,16 @@ export default function ChangeDurations({ values, setValues }) {
           </span>
           <div className="input-group-append">
             <Button
-              increase={false}
-              focus={true}
+              // increase={false}
+              // focus={true}
+              type={"decrease-focus"}
               values={values}
               setValues={setValues}
             />
             <Button
-              increase={true}
-              focus={true}
+              // increase={true}
+              // focus={true}
+              type={"increase-focus"}
               values={values}
               setValues={setValues}
             />
@@ -41,14 +43,16 @@ export default function ChangeDurations({ values, setValues }) {
             </span>
             <div className="input-group-append">
               <Button
-                increase={false}
-                focus={false}
+                // increase={false}
+                // focus={false}
+                type={"decrease-break"}
                 values={values}
                 setValues={setValues}
               />
               <Button
-                increase={true}
-                focus={false}
+                // increase={true}
+                // focus={false}
+                type={"increase-break"}
                 values={values}
                 setValues={setValues}
               />

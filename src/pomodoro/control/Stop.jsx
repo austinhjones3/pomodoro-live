@@ -5,7 +5,7 @@ import React from "react";
  * @returns {JSX} - JSX element representing the stop button
  */
 export default function Stop({ values, setValues }) {
-  const { focusVal, breakVal } = values;
+  const { focusVal, breakVal, stopClicked } = values;
 
   /**
    * @function stopClickHandler() - handles the processes for when the stop button
@@ -29,6 +29,7 @@ export default function Stop({ values, setValues }) {
       className="btn btn-secondary"
       title="Stop the session"
       onClick={stopClickHandler}
+      disabled={stopClicked}
     >
       <span className="oi oi-media-stop" />
     </button>
