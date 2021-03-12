@@ -30,12 +30,13 @@ function minutesToDuration(givenMinutes) {
  */
 
 function secondsToDuration(givenSeconds) {
-  const minutes = Math.floor((givenSeconds % 3600) / 60)
+  let minutes = Math.floor((givenSeconds % 3600) / 60)
     .toString()
     .padStart(2, "0");
   const seconds = Math.round(givenSeconds % 60)
     .toString()
     .padStart(2, "0");
+  if (minutes === "00") minutes = "60";
   return `${minutes}:${seconds}`;
 }
 
